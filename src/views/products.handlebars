@@ -1,0 +1,18 @@
+<h2>Welcome, {{user.name}}!</h2>
+<p>Your email is {{user.email}}</p>
+<p>Your age is {{user.age}}</p>
+<p>Your role is {{user.role}}</p>
+
+<input type="button" value="Log out" onclick="logout()">
+
+<h2>Products:</h2>
+<ul>
+    {{#each product}}
+    <div id={{id}}>
+        <li><b>{{title}}</b><input type="button" value="View More" onclick="window.location.href='{{url}}'"><input type="button" value="Add to cart" onclick="sendToCart('{{id}}')"></li>
+    </div>
+    {{/each}}
+</ul>
+<p>{{#if hasPrev}}<a href="{{prevUrl}}">Previous Page</a>   {{/if}}{{#if hasNext}}<a href="{{nextUrl}}">Next Page</a>{{/if}}</p>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/addToCart.js"></script>

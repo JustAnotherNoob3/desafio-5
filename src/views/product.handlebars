@@ -1,0 +1,12 @@
+<h2>{{title}}</h2>
+{{#each pair}}
+<ul>
+{{#if key}}
+<li><b>{{key}}</b>: {{value}}</li>
+{{/if}}
+</ul>
+{{/each}}
+<br>
+<input type="button" value="Add to cart" onclick="sendToCart('{{id}}')">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/addToCart.js"></script>

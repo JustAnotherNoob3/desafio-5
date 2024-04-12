@@ -1,0 +1,30 @@
+<h2>Anon Chat</h2>
+<div id="form">
+    <input id="chatBox">
+    <input type="button" value="Send" onclick="sendMessage()">
+    
+</div>
+<dl>
+    <ul id="toAdd">
+        {{#each messages}}
+        {{#if user}}
+        <div id={{_id}} class="message">
+            {{#checkLastUser user}}
+            <dt>
+                <b>{{user}}:</b>
+            </dt>
+            {{/checkLastUser}}
+            {{#set "lastUser" user}}{{/set}}
+            <dd class="{{user}}">
+                <li>{{message}} <input type="button" value="Edit" onclick="updateMessage('{{_id}}')"><input type="button" value="Delete" onclick="deleteMessage('{{_id}}')"></li>
+            </dd>
+        </div>
+
+        {{/if}}
+        {{/each}}
+    </ul>
+</dl>
+<input type="button" value="Clean Chat" onclick="cleanChat()">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/wsChat.js"></script>
